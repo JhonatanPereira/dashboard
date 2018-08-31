@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 // Views - Pages
 const Login = () => import('@/views/Login')
-
+const Dashboard = () => import('@/views/dashboard/Home')
 Vue.use(Router)
 
 export default new Router({
@@ -14,6 +14,10 @@ export default new Router({
     {
       path: '/',
       component: Login
+    },
+    {
+      path: '/dashboard',
+      component: Dashboard
     }
   ]
 })
