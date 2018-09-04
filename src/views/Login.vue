@@ -47,12 +47,11 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import authMixin from '@/mixins/authMixin'
 import errorMixin from '@/mixins/errorMixin'
 
 export default {
   name: 'Login',
-  mixins: [authMixin, errorMixin],
+  mixins: [errorMixin],
   data () {
     return {
       email: '',

@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 // Views - Pages
 const Login = () => import('@/views/Login')
-const Dashboard = () => import('@/views/dashboard/Home')
+const Home = () => import('@/containers/Home')
+const Dashboard = () => import('@/views/Dashboard')
 Vue.use(Router)
 
 export default new Router({
@@ -16,8 +17,17 @@ export default new Router({
       component: Login
     },
     {
-      path: '/dashboard',
-      component: Dashboard
+      path: '/home',
+      redirect: '/dashboard',
+      name: 'Home',
+      component: Home,
+      children: [
+        {
+          path: '/dashboard',
+          name: 'Dashboard',
+          component: Dashboard
+        }
+      ]
     }
   ]
 })
