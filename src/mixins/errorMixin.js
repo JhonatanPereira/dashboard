@@ -13,7 +13,6 @@ export default {
   },
   watch: {
     isLogged: function (isLogged) {
-      console.log(isLogged)
       this.loginPusher(isLogged)
     }
   },

@@ -18,6 +18,7 @@ const loginUser = async function ({ commit }, credential) {
     commit('LOGIN_USER')
   } catch (error) {
     commit('LOGOUT_USER')
+    return 'error'
   }
 }
 

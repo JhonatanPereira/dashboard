@@ -72,6 +72,13 @@ export default {
         return
       }
       this.loginUser({ email: this.email, password: this.password })
+      .then(res =>{
+        if (res === 'error') {
+          console.log('n logado')
+        } else {
+          console.log('logado')
+        }
+      })
     }
   },
 }
