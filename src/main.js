@@ -1,28 +1,49 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import 'core-js/es6/promise'
-import 'core-js/es6/string'
-import 'core-js/es7/array'
-// import cssVars from 'css-vars-ponyfill'
-import Vue from 'vue'
-import Vuex from 'vuex'
-import BootstrapVue from 'bootstrap-vue'
-import App from './App'
-import router from './router'
-import store from './store/index'
+import Vue from 'vue';
+import App from './App';
+import Vuetify from 'vuetify';
+import router from './router';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';  
+import './theme/default.styl';
+import VeeValidate from 'vee-validate';
+import Truncate from 'lodash.truncate';
 
-// todo
-// cssVars()
-Vue.use(Vuex)
-Vue.use(BootstrapVue)
- 
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.config.productionTip = false;
+// Helpers
+// Global filters
+Vue.filter('truncate', Truncate);
+Vue.use(VeeValidate, { fieldsBagName: 'formFields' });
+Vue.use(Vuetify, {
+  // theme: {
+  //   primary: colors.indigo.base, // #E53935
+  //   secondary: colors.indigo.lighten4, // #FFCDD2
+  //   accent: colors.indigo.base // #3F51B5
+  // },
+  options: {
+    themeVariations: ['primary', 'secondary', 'accent'],
+    extra: {
+      mainToolbar: {
+        color: 'primary',
+      },
+      sideToolbar: {
+      },
+      sideNav: 'primary',
+      mainNav: 'primary lighten-1',
+      bodyBg: '',
+    }
+  }
+});
+// Bootstrap application components
+
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  store,
-  template: '<App/>',
-  components: {
-    App
-  }
-})
+  components: { App },
+  template: '<App/>'
+});
